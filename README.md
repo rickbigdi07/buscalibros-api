@@ -8,7 +8,7 @@ Autores: Ricardo Adiel Cuellar Cortez y Josue Emiliano Diaz Garcia
 - **Aplicación publicada:** https://rickbigdi07.github.io/buscalibros-api/
 - **Repositorio:** https://github.com/rickbigdi07/buscalibros-api
 
-## 1. API utilizada
+## API utilizada
 
 [Open Library](https://openlibrary.org/developers/api) es un catálogo abierto de libros mantenido por Internet Archive. Se eligió porque:
 
@@ -45,7 +45,7 @@ La búsqueda devuelve `numFound` (total de coincidencias) y `docs` (arreglo de l
 | Más de 12 s sin respuesta | La consulta tardó demasiado. |
 | Respuesta que no es JSON | La respuesta no tiene el formato esperado. |
 
-## 2. Funcionalidad
+## Funcionalidad
 
 1. **Consumo con `fetch()` y `async/await`** en `js/api.js`, con tiempo límite de 12 s y cancelación de la petición anterior con `AbortController`.
 2. **Procesamiento del JSON**: se normalizan los libros (autores, año, portada) y se descarta lo innecesario.
@@ -55,7 +55,7 @@ La búsqueda devuelve `numFound` (total de coincidencias) y `docs` (arreglo de l
 6. **Accesibilidad**: enlace para saltar al contenido, regiones `aria-live`, `role="alert"` en errores, cuadro `<dialog>` nativo cerrable con Esc y manejo del foco.
 7. **Diseño responsivo** con Grid y Flexbox (2, 3 y 4 columnas según el ancho).
 
-## 3. Instrucciones de uso
+## Instrucciones de uso
 
 1. Abrir la URL de la aplicación (o abrir `index.html` en el navegador; no necesita servidor ni instalación).
 2. Escribir un título, autor o tema (mínimo 2 letras) y pulsar **Buscar**, o elegir una búsqueda sugerida.
@@ -63,7 +63,7 @@ La búsqueda devuelve `numFound` (total de coincidencias) y `docs` (arreglo de l
 4. Usar **Anterior / Siguiente** para cambiar de página.
 5. Pulsar **Ver detalles** en una tarjeta para leer la descripción y los temas.
 
-## 4. Estructura del proyecto
+## Estructura del proyecto
 
 ```
 index.html        Estructura semántica de la página
@@ -74,7 +74,7 @@ js/app.js         Estado de la aplicación y eventos
 capturas/         Capturas de pantalla para este README
 ```
 
-## 5. Capturas de pantalla
+## Capturas de pantalla
 
 | Resultados | Estado de carga | Sin resultados |
 |---|---|---|
@@ -84,11 +84,11 @@ capturas/         Capturas de pantalla para este README
 |---|---|---|
 | ![Error](capturas/error.png) | ![Detalle](capturas/detalle.png) | ![Móvil](capturas/movil.png) |
 
-## 6. Pruebas realizadas
+## Pruebas realizadas
 
 Se probó en Chrome con respuestas simuladas de la API (29 comprobaciones): carga inicial, total y paginación, filtro, detalle con descripción en texto y en objeto, estado vacío, errores 503, sin conexión y respuesta no JSON, reintento, validación del campo de búsqueda, texto con HTML mostrado como texto, ausencia de errores en consola y ausencia de desbordamiento horizontal a 375 px. Además se verificó la sintaxis de los scripts, el balance de etiquetas HTML y que todos los pares de colores cumplan contraste WCAG AA (mínimo 7:1).
 
-## 7. Reflexión técnica
+## Reflexión
 
 Lo más importante de esta actividad fue entender que consumir una API no es solo pedir datos: hay que prever todo lo que puede salir mal. Una petición tiene tiempos de espera, puede fallar por red o por el servidor, o puede devolver algo vacío, y cada caso necesita un mensaje claro para el usuario. Separar el código en tres archivos (acceso a la API, interfaz y lógica) hizo más fácil encontrar y corregir errores, porque cada parte tiene una sola responsabilidad.
 
