@@ -96,6 +96,3 @@ Otro aprendizaje fue la cancelación de peticiones: si el usuario hace dos búsq
 
 Como mejora a futuro se podría guardar la última búsqueda en `localStorage`, agregar un filtro por año y ordenar los resultados.
 
-## 8. Control de versiones
-
-El proyecto se desarrolló con commits descriptivos por componente (estructura, estilos, módulo de API, interfaz, lógica y documentación).
