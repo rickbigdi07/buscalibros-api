@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Buscalibros: busca libros por título, autor o tema con datos en tiempo real de la API pública de Open Library.">
+  <title>Buscalibros | Búsqueda de libros con Open Library</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Los scripts se cargan en orden: primero la API, luego la interfaz y al final la lógica -->
+  <script src="js/api.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#titulo-resultados">Saltar a los resultados</a>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <h1>Buscalibros</h1>
+      <p>Busca libros por título, autor o tema. Los datos llegan en tiempo real desde la API pública de Open Library.</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="busqueda" aria-labelledby="titulo-busqueda">
+      <h2 id="titulo-busqueda" class="solo-lectores">Buscar libros</h2>
+
+      <form id="formulario" class="formulario" role="search">
+        <div class="campo">
+          <label for="consulta">Título, autor o tema</label>
+          <input type="search" id="consulta" name="consulta" required minlength="2"
+                 autocomplete="off" placeholder="Ej. Borges, programación, cocina">
+        </div>
+        <button class="boton" type="submit">Buscar</button>
+        <div class="campo-check">
+          <input type="checkbox" id="solo-portada" name="solo-portada">
+          <label for="solo-portada">Mostrar solo libros con portada</label>
+        </div>
+      </form>
+
+      <div class="sugerencias" role="group" aria-label="Búsquedas sugeridas">
+        <span class="sugerencias__etiqueta">Prueba con:</span>
+        <button type="button" class="chip" data-consulta="Gabriel García Márquez">Gabriel García Márquez</button>
+        <button type="button" class="chip" data-consulta="ciencia ficción">Ciencia ficción</button>
+        <button type="button" class="chip" data-consulta="programación">Programación</button>
+        <button type="button" class="chip" data-consulta="historia de México">Historia de México</button>
+      </div>
+    </section>
+
+    <section class="resultados-seccion" aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados" tabindex="-1">Resultados</h2>
+      <p id="resumen" class="resumen" aria-live="polite"></p>
+
+      <!-- Aquí se muestran los estados: cargando, sin resultados y error -->
+      <div id="estado" class="estado" aria-live="polite"></div>
+
+      <!-- Aquí se crean dinámicamente las tarjetas de libros -->
+      <ul id="resultados" class="rejilla" aria-busy="false"></ul>
+
+      <nav id="paginacion" class="paginacion" aria-label="Paginación de resultados" hidden>
+        <button id="btn-anterior" class="boton boton--secundario" type="button">&larr; Anterior</button>
+        <span id="indicador-pagina" class="paginacion__indicador">Página 1 de 1</span>
+        <button id="btn-siguiente" class="boton boton--secundario" type="button">Siguiente &rarr;</button>
+      </nav>
+    </section>
+  </main>
+
+  <!-- Ventana de detalle del libro seleccionado -->
+  <dialog id="detalle" class="detalle" aria-labelledby="detalle-titulo">
+    <div class="detalle__barra">
+      <h2 id="detalle-titulo">Detalle del libro</h2>
+      <form method="dialog">
+        <button class="boton boton--secundario" type="submit" aria-label="Cerrar detalle del libro">Cerrar</button>
+      </form>
+    </div>
+    <div id="detalle-cuerpo" class="detalle__cuerpo"></div>
+  </dialog>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Proyecto académico del Laboratorio de Programación Web, FIME UANL. Datos e imágenes de
+        <a href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">Open Library</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
