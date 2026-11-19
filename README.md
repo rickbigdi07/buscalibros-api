@@ -2,7 +2,7 @@
 
 Miniaplicación web que consume la API REST pública de **Open Library** para buscar libros, mostrarlos en tarjetas creadas dinámicamente y consultar el detalle de cada uno.
 
-Actividad 4 · Laboratorio de Programación Web · FIME, UANL
+Actividad 4 · Laboratorio de Programación Web 
 Autores: Ricardo Adiel Cuellar Cortez y Josue Emiliano Diaz Garcia
 
 - **Aplicación publicada:** https://rickbigdi07.github.io/buscalibros-api/
