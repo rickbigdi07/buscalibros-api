@@ -59,7 +59,7 @@ La búsqueda devuelve `numFound` (total de coincidencias) y `docs` (arreglo de l
 
 1. Abrir la URL de la aplicación (o abrir `index.html` en el navegador; no necesita servidor ni instalación).
 2. Escribir un título, autor o tema (mínimo 2 letras) y pulsar **Buscar**, o elegir una búsqueda sugerida.
-3. Marcar **Solo con portada** para ocultar libros sin imagen.
+3. Marcar **Mostrar solo libros con portada** para ocultar libros sin imagen.
 4. Usar **Anterior / Siguiente** para cambiar de página.
 5. Pulsar **Ver detalles** en una tarjeta para leer la descripción y los temas.
 
